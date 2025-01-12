@@ -1,0 +1,40 @@
+Theory Explanation:
+Whitespace Handling:
+
+The input string may have leading whitespace. We skip any leading spaces using a loop before processing the number.
+Sign Detection:
+
+The sign (+ or -) is checked next. If a + or - is found at the beginning, we mark the sign and move the index forward. If two signs are encountered consecutively, or if there is an invalid sign placement, we return 0 to indicate an error.
+Skip Leading Zeros:
+
+If there are leading zeros, we skip them. This is necessary because "00123" should be parsed as "123".
+Processing the Digits:
+
+We then iterate through the string, converting each valid digit into an integer. The result is built by multiplying the current number by 10 and adding the new digit to it.
+Overflow and Underflow Handling:
+
+The result is checked for overflow or underflow conditions. If the result exceeds the maximum or minimum values that an integer can hold (INT_MAX or INT_MIN), we return the respective boundary value.
+For positive overflow, if ans exceeds INT_MAX, we return INT_MAX.
+For negative overflow, we check for underflow by comparing ans to the minimum possible integer (INT_MIN).
+Final Result:
+
+After processing all the digits, the result is adjusted for the sign (if negative) and returned.
+Space Complexity:
+Auxiliary Space:
+
+The algorithm uses a constant amount of space for variables like neg, i, ans, and b.
+There is no additional space used based on the size of the input string.
+Final Space Complexity: O(1), as the space used is constant.
+
+Time Complexity:
+Iterating Through the String:
+
+We loop through the string at most once, skipping over whitespace, checking for signs, skipping leading zeros, and processing each digit once.
+Operations Inside the Loop:
+
+Each operation inside the loop (such as checking if the character is a digit, updating ans, and checking overflow conditions) takes constant time.
+Final Time Complexity: O(n), where n is the length of the string.
+Overall Complexity:
+Time Complexity: O(n), where n is the length of the string.
+Space Complexity: O(1), as the algorithm uses a constant amount of space.
+This solution efficiently converts a string to an integer while handling edge cases like whitespace, signs, leading zeros, and overflow/underflow, making it both time-efficient and space-efficient.
